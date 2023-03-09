@@ -9,6 +9,7 @@ import { ShowComponent } from './show/show.component';
 import { AddComponent } from './add/add.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { StudentService } from './student.service';
 
 @NgModule({
   declarations: [
@@ -17,9 +18,11 @@ import { FormsModule } from '@angular/forms';
     HeaderComponent,
     ShowComponent,
     AddComponent,
+
+
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
-  providers: [],
+  providers: [StudentService],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }

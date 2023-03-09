@@ -1,4 +1,8 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Student } from '../student';
+import { StudentService } from '../student.service';
+
 
 @Component({
   selector: 'app-show',
@@ -6,18 +10,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./show.component.css'],
 })
 export class ShowComponent implements OnInit {
-  url: string = 'http://localhost:3000/student';
 
-  student: any[] = [];
 
+  constructor(private studentService: StudentService) { }
+  students: any = [];
   ngOnInit() {
-    fetch(this.url)
-      .then((response) => response.json())
-      .then((student) => {
-        this.student = student;
-      })
-      .catch((error) => {
-        alert('Data loading failed! Server error');
-      });
+    this.getStudent()
+  }
+
+  public getStudent() {
+    this.studentService.getStudents().subscribe(
+      data => this.students = data,
+      (error: HttpErrorResponse) => {
+        console.error("Cannot call API: ", error);
+        alert("Sorry! server error, data loading failed!");
+      }
+    )
   }
 }
