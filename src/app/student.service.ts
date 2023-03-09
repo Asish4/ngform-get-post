@@ -10,7 +10,15 @@ export class StudentService {
 
     public getStudents(): Observable<Student> {
 
-        console.log(this.http.get<Student>(this.apiServerUrl + '/students'));
+        // console.log(this.http.get<Student>(this.apiServerUrl + '/students'));
         return this.http.get<Student>(this.apiServerUrl + '/students');
     }
+
+    public postStudents(data: any): Observable<Student> {
+
+        // console.log(this.http.get<Student>(this.apiServerUrl + '/students'));
+        return this.http.post<Student>(this.apiServerUrl + '/students', data);
+    }
+
+
 }

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { StudentService } from '../student.service';
 
 @Component({
   selector: 'app-add',
@@ -6,29 +7,29 @@ import { Component } from '@angular/core';
   styleUrls: ['./add.component.css'],
 })
 export class AddComponent {
-  url: string = 'http://localhost:3000/student';
 
+
+  constructor(private studentService: StudentService) { }
+
+  // constructor(private studentService: StudentService)
   submit(value: any) {
     const data: object = {
-      name: value.name,
-      phoneNo: value.mobile_number,
-      email: value.email,
-      state: value.state,
-      city: value.city,
-      country: value.country,
-      pin: value.pin_code,
+      "name": value.name,
+      "phoneNo": value.mobile_number,
+      "email": value.email,
+      "state": value.state,
+      "city": value.city,
+      "country": value.country,
+      "pin": value.pin_code,
     };
-    console.log(value.name);
-    const param = {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(data),
-    };
-    fetch(this.url, param).then((response) => {
-      alert('Successfuly added the data');
-      response.json();
-    });
+
+
+    var users: any;
+
+    this.studentService.postStudents(data).subscribe((data) => {
+      users = data;
+    })
+
+
   }
 }

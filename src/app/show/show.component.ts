@@ -20,11 +20,14 @@ export class ShowComponent implements OnInit {
 
   public getStudent() {
     this.studentService.getStudents().subscribe(
-      data => this.students = data,
+      data => console.log(this.students = data),
+
       (error: HttpErrorResponse) => {
         console.error("Cannot call API: ", error);
         alert("Sorry! server error, data loading failed!");
       }
+
     )
+
   }
 }
