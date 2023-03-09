@@ -1,0 +1,25 @@
+<div class="container-fluid h-100">
+  <div class="row h-100">
+    <div
+      class="col-md-2 shadow-lg p-0 mb-0"
+      style="height: 43rem; background-color: #0093f5"
+    >
+      <a
+        class="list-group-item ms-2 mt-1 fs-5 shadow-lg p-3 mb-1 rounded text-light"
+        style="font-family: 'Poppins', sans-serif"
+        routerLink="show"
+        >SHOW</a
+      >
+
+      <a
+        class="list-group-item ms-2 fs-5 shadow-lg p-3 mb-1 rounded text-light"
+        style="font-family: 'Poppins', sans-serif"
+        routerLink="add"
+        >ADD</a
+      >
+    </div>
+    <div class="col-md-10 text-center">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

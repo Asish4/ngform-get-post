@@ -1,0 +1,182 @@
+<div class="container row">
+  <div class="col-lg-3"></div>
+  <div class="col-lg-6 pt-5">
+    <form
+      id="studentform"
+      name="myForm"
+      #inputForm="ngForm"
+      (ngSubmit)="submit(inputForm.value)"
+    >
+      <div class="form-group row">
+        <div class="col-lg-6 text-right">
+          <label for="employee_id">Employee ID:</label>
+        </div>
+
+        <div class="col-lg-6" id="employee-id">
+          <input
+            type="number"
+            id="employee_id"
+            class="form-control"
+            name="employee_id"
+          />
+          <span></span>
+          <span class="formerror" id="span"></span>
+        </div>
+
+        <br /><br />
+      </div>
+
+      <div class="form-group row">
+        <div class="col-lg-6 text-right">
+          <label for="name"> Name:</label>
+        </div>
+
+        <div class="col-lg-6" id="name-id">
+          <input
+            type="text"
+            id="name"
+            class="form-control"
+            name="name"
+            ngModel
+          />
+          <span></span>
+          <span class="formerror" id="span"></span>
+        </div>
+        <br /><br />
+      </div>
+
+      <div class="form-group row">
+        <div class="col-lg-6 text-right">
+          <label for="mobile_number">Mobile Number:</label>
+        </div>
+
+        <div class="col-lg-6" id="mobile-id">
+          <input
+            type="number"
+            id="mobile_number"
+            class="form-control"
+            name="mobile_number"
+            ngModel
+          />
+          <span></span>
+          <span class="formerror" id="span"></span>
+        </div>
+        <br /><br />
+      </div>
+
+      <div class="form-group row">
+        <div class="col-lg-6 text-right">
+          <label for="email">Email:</label>
+        </div>
+        <div class="col-lg-6" id="email-id">
+          <input
+            type="email"
+            id="email"
+            class="form-control"
+            name="email"
+            ngModel
+          />
+          <span></span>
+          <span class="formerror" id="span"></span>
+        </div>
+        <br /><br />
+      </div>
+
+      <div class="form-group row">
+        <div class="col-lg-6 text-right">
+          <label for="city">City:</label>
+        </div>
+        <div class="col-lg-6" id="city-id">
+          <select name="city" id="city" class="form-control" ngModel>
+            <option value=" ">None</option>
+            <option value="Kolkata">Kolkata</option>
+            <option value="Mumbai">Mumbai</option>
+            <option value="Delhi">Delhi</option>
+            <option value="Pune">Pune</option>
+          </select>
+          <span></span>
+          <span class="formerror" id="span"></span>
+        </div>
+        <br /><br />
+      </div>
+
+      <div class="form-group row">
+        <div class="col-lg-6 text-right">
+          <label for="state">State:</label>
+        </div>
+
+        <div class="col-lg-6" id="state-id">
+          <select name="state" id="state" class="form-control" ngModel>
+            <option value=" ">None</option>
+            <option value="Andaman and Nicobar Islands">
+              Andaman and Nicobar Islands
+            </option>
+            <option value="Andhra Pradesh">Andhra Pradesh</option>
+            <option value="AR">Arunachal Pradesh</option>
+            <option value="Assam">Assam</option>
+            <option value="Bihar">Bihar</option>
+            <option value="WB">West Bengal</option>
+          </select>
+          <span></span>
+          <span class="formerror" id="span"></span>
+        </div>
+        <br /><br />
+      </div>
+
+      <div class="form-group row">
+        <div class="col-lg-6 text-right">
+          <label for="country">Country:</label>
+        </div>
+
+        <div class="col-lg-6" id="country-id">
+          <select name="country" id="country" class="form-control" ngModel>
+            <option value=" ">None</option>
+            <option value="ind">Ind</option>
+            <option value="pak">Pak</option>
+            <option value="aus">Aus</option>
+            <option value="usa">USA</option>
+          </select>
+          <span></span>
+          <span class="formerror" id="span"></span>
+        </div>
+        <br /><br />
+      </div>
+
+      <div class="form-group row">
+        <div class="col-lg-6 text-right">
+          <label for="pin_code">PIN Code:</label>
+        </div>
+
+        <div class="col-lg-6" id="pincode-id">
+          <input
+            type="number"
+            id="pin_code"
+            class="form-control"
+            name="pin_code"
+            ngModel
+          />
+          <span></span>
+          <span class="formerror" id="span"></span>
+        </div>
+        <br /><br />
+      </div>
+
+      <div class="row">
+        <div class="col-lg-4"></div>
+        <div class="col-lg-4">
+          <button
+            class="btn btn-primary"
+            type="submit"
+            value="submit"
+            id="button"
+          >
+            Submit
+          </button>
+        </div>
+      </div>
+
+      <div class="col-lg-4"></div>
+    </form>
+  </div>
+  <div class="col-lg-3"></div>
+</div>

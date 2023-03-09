@@ -1,0 +1,33 @@
+<div class="container row">
+  <div class="col-lg-1"></div>
+  <div class="col-lg-10 pt-5">
+    <!-- Table for show data in table which was given by user in "form" element   -->
+    <div class="col-lg-8" class="table-responsive" id="table">
+      <table class="table p-3" border="4" id="table_id">
+        <tr class="p-3">
+          <th>Employee id</th>
+          <th>Name</th>
+          <th>Mobile number</th>
+          <th>Email</th>
+          <th>City</th>
+          <th>State</th>
+          <th>Country</th>
+          <th>Pin code</th>
+          <th colspan="2">Action</th>
+        </tr>
+        <tr *ngFor="let student of student">
+          <td>{{ student.id }}</td>
+          <td>{{ student.name }}</td>
+          <td>{{ student.phoneNo }}</td>
+          <td>{{ student.email }}</td>
+          <td>{{ student.state }}</td>
+          <td>{{ student.city }}</td>
+          <td>{{ student.country }}</td>
+          <td>{{ student.pin }}</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="col-lg-1"></div>
+</div>
