@@ -16,9 +16,30 @@ export class StudentService {
 
     public postStudents(data: any): Observable<Student> {
 
+
         // console.log(this.http.get<Student>(this.apiServerUrl + '/students'));
         return this.http.post<Student>(this.apiServerUrl + '/students', data);
     }
 
+    public deleteStudent(id: any): Observable<Student> {
+
+        console.log(id);
+
+
+        return this.http.delete<Student>(this.apiServerUrl + '/students' + '/' + id)
+
+    }
+
+    public putStudent(data: any, id: any): Observable<Student> {
+        // console.log("This is put");
+        // console.log(data);
+        // console.log(id);
+
+        console.log(id);
+
+
+        // console.log(this.http.get<Student>(this.apiServerUrl + '/students'));
+        return this.http.put<Student>(this.apiServerUrl + '/students' + '/' + id, data);
+    }
 
 }

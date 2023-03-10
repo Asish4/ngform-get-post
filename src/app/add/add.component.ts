@@ -24,10 +24,14 @@ export class AddComponent {
     };
 
 
-    var users: any;
+
+
+
+
+
 
     this.studentService.postStudents(data).subscribe((data) => {
-      users = data;
+
     })
 
 

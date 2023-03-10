@@ -10,9 +10,47 @@ import { StudentService } from '../student.service';
   styleUrls: ['./show.component.css'],
 })
 export class ShowComponent implements OnInit {
-
-
   constructor(private studentService: StudentService) { }
+
+  ids: string = "hello";
+
+  takeSubmitId(id: any) {
+
+
+    this.ids = id;
+    // console.log(this.ids);
+
+  }
+
+
+  editSubmit(value: any) {
+    const datas: object = {
+      "name": value.name,
+      "phoneNo": value.mobile_number,
+      "email": value.email,
+      "state": value.state,
+      "city": value.city,
+      "country": value.country,
+      "pin": value.pin_code,
+    };
+
+
+
+    this.studentService.putStudent(datas, this.ids).subscribe((data) => {
+
+    })
+
+
+  }
+
+
+
+
+
+  deleteStudent(id: any) {
+    this.studentService.deleteStudent(id).subscribe();
+  }
+
   students: any = [];
   ngOnInit() {
     this.getStudent()
