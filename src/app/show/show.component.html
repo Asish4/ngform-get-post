@@ -44,6 +44,8 @@
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
+
+          <!-- Mddal form for update data -->
           <div class="modal-body">
             <form action="#" id="s_form" name="modalForm" #inputEditForm="ngForm"
               (ngSubmit)="editSubmit(inputEditForm.value)">
@@ -172,13 +174,12 @@
                 </div>
                 <br /><br />
               </div>
-              <button type="submit" class="btn btn-primary" id="button_id" data-bs-dismiss="modal">
-              </button>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary" id="button_id" data-bs-dismiss="modal"> Submit
+                </button>
+              </div>
             </form>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            Submit
           </div>
         </div>
       </div>

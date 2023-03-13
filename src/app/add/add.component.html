@@ -1,24 +1,15 @@
+<!-- Form for add data -->
 <div class="container row">
   <div class="col-lg-3"></div>
   <div class="col-lg-6 pt-5">
-    <form
-      id="studentform"
-      name="myForm"
-      #inputForm="ngForm"
-      (ngSubmit)="submit(inputForm.value)"
-    >
+    <form id="studentform" name="myForm" #inputForm="ngForm" (ngSubmit)="submit(inputForm.value)">
       <div class="form-group row">
         <div class="col-lg-6 text-right">
           <label for="employee_id">Employee ID:</label>
         </div>
 
         <div class="col-lg-6" id="employee-id">
-          <input
-            type="number"
-            id="employee_id"
-            class="form-control"
-            name="employee_id"
-          />
+          <input type="number" id="employee_id" class="form-control" name="employee_id" />
           <span></span>
           <span class="formerror" id="span"></span>
         </div>
@@ -32,13 +23,7 @@
         </div>
 
         <div class="col-lg-6" id="name-id">
-          <input
-            type="text"
-            id="name"
-            class="form-control"
-            name="name"
-            ngModel
-          />
+          <input type="text" id="name" class="form-control" name="name" ngModel />
           <span></span>
           <span class="formerror" id="span"></span>
         </div>
@@ -51,13 +36,7 @@
         </div>
 
         <div class="col-lg-6" id="mobile-id">
-          <input
-            type="number"
-            id="mobile_number"
-            class="form-control"
-            name="mobile_number"
-            ngModel
-          />
+          <input type="number" id="mobile_number" class="form-control" name="mobile_number" ngModel />
           <span></span>
           <span class="formerror" id="span"></span>
         </div>
@@ -69,13 +48,7 @@
           <label for="email">Email:</label>
         </div>
         <div class="col-lg-6" id="email-id">
-          <input
-            type="email"
-            id="email"
-            class="form-control"
-            name="email"
-            ngModel
-          />
+          <input type="email" id="email" class="form-control" name="email" ngModel />
           <span></span>
           <span class="formerror" id="span"></span>
         </div>
@@ -148,13 +121,7 @@
         </div>
 
         <div class="col-lg-6" id="pincode-id">
-          <input
-            type="number"
-            id="pin_code"
-            class="form-control"
-            name="pin_code"
-            ngModel
-          />
+          <input type="number" id="pin_code" class="form-control" name="pin_code" ngModel />
           <span></span>
           <span class="formerror" id="span"></span>
         </div>
@@ -164,12 +131,7 @@
       <div class="row">
         <div class="col-lg-4"></div>
         <div class="col-lg-4">
-          <button
-            class="btn btn-primary"
-            type="submit"
-            value="submit"
-            id="button"
-          >
+          <button class="btn btn-primary" type="submit" value="submit" id="button">
             Submit
           </button>
         </div>

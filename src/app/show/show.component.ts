@@ -12,14 +12,10 @@ import { StudentService } from '../student.service';
 export class ShowComponent implements OnInit {
   constructor(private studentService: StudentService) { }
 
-  ids: string = "hello";
+  ids: string | undefined;
 
   takeSubmitId(id: any) {
-
-
     this.ids = id;
-    // console.log(this.ids);
-
   }
 
 
@@ -34,21 +30,15 @@ export class ShowComponent implements OnInit {
       "pin": value.pin_code,
     };
 
-
-
-    this.studentService.putStudent(datas, this.ids).subscribe((data) => {
-
+    this.studentService.putStudent(datas, this.ids).subscribe(() => {
+      alert("Data successfully Updated");
     })
-
-
   }
 
-
-
-
-
   deleteStudent(id: any) {
-    this.studentService.deleteStudent(id).subscribe();
+    this.studentService.deleteStudent(id).subscribe(() => {
+      alert("Data successfully Deleted");
+    })
   }
 
   students: any = [];
@@ -58,10 +48,8 @@ export class ShowComponent implements OnInit {
 
   public getStudent() {
     this.studentService.getStudents().subscribe(
-      data => console.log(this.students = data),
-
-      (error: HttpErrorResponse) => {
-        console.error("Cannot call API: ", error);
+      data => this.students = data,
+      (HttpErrorResponse) => {
         alert("Sorry! server error, data loading failed!");
       }
 

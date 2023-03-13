@@ -6,39 +6,27 @@ import { Student } from './student';
 export class StudentService {
     constructor(private http: HttpClient) { }
     //private apiServerUrl = enviornment.apiBaseUrl;
-    private apiServerUrl = "http://192.168.0.108:8080";
+    private apiServerUrl = "http://localhost:3000";
 
+
+    // get students data
     public getStudents(): Observable<Student> {
-
-        // console.log(this.http.get<Student>(this.apiServerUrl + '/students'));
         return this.http.get<Student>(this.apiServerUrl + '/students');
     }
 
+    // Send the student data
     public postStudents(data: any): Observable<Student> {
-
-
-        // console.log(this.http.get<Student>(this.apiServerUrl + '/students'));
         return this.http.post<Student>(this.apiServerUrl + '/students', data);
     }
 
+    // Delete the student data
     public deleteStudent(id: any): Observable<Student> {
-
-        console.log(id);
-
-
         return this.http.delete<Student>(this.apiServerUrl + '/students' + '/' + id)
 
     }
 
+    // Update the student data
     public putStudent(data: any, id: any): Observable<Student> {
-        // console.log("This is put");
-        // console.log(data);
-        // console.log(id);
-
-        console.log(id);
-
-
-        // console.log(this.http.get<Student>(this.apiServerUrl + '/students'));
         return this.http.put<Student>(this.apiServerUrl + '/students' + '/' + id, data);
     }
 

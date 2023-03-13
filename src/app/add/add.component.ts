@@ -11,7 +11,7 @@ export class AddComponent {
 
   constructor(private studentService: StudentService) { }
 
-  // constructor(private studentService: StudentService)
+
   submit(value: any) {
     const data: object = {
       "name": value.name,
@@ -24,14 +24,8 @@ export class AddComponent {
     };
 
 
-
-
-
-
-
-
-    this.studentService.postStudents(data).subscribe((data) => {
-
+    this.studentService.postStudents(data).subscribe(() => {
+      alert("Data successfully Added");
     })
 
 
