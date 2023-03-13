@@ -12,10 +12,32 @@ import { StudentService } from '../student.service';
 export class ShowComponent implements OnInit {
   constructor(private studentService: StudentService) { }
 
-  ids: string | undefined;
+  studentToUpdate = {
+    "id": "",
+    "name": "",
+    "phoneNo": "",
+    "email": "",
+    "state": "",
+    "city": "",
+    "country": "",
+    "pin": ""
 
+  };
+
+  showValueModal(st: any) {
+    this.studentToUpdate = st;
+    console.log(this.studentToUpdate);
+
+  }
+
+  ids: string | undefined;
+  // student: Student[] = [];
   takeSubmitId(id: any) {
     this.ids = id;
+
+    // let currentStudent = this.student.find((s) => { return s.id == id });
+    // console.log(currentStudent);
+
   }
 
 

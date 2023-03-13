@@ -24,8 +24,8 @@
           <td>{{ student.city }}</td>
           <td>{{ student.country }}</td>
           <td>{{ student.pin }}</td>
-          <td><button type="button" (click)="takeSubmitId(student.id)" data-bs-toggle="modal"
-              data-bs-target="#editModal" class="btn btn-outline-info"><i
+          <td><button type="button" (click)="takeSubmitId(student.id)" (click)="showValueModal(student)"
+              data-bs-toggle="modal" data-bs-target="#editModal" class="btn btn-outline-info"><i
                 class="fa-solid fa-pen-to-square"></i></button></td>
           <td><button type="button" (click)="deleteStudent(student.id)" class="btn btn-outline-danger"> <i
                 class="fa-solid fa-trash"></i></button></td>
@@ -55,7 +55,8 @@
                 </div>
 
                 <div class="col-lg-6" id="edit-employee-id">
-                  <input type="number" id="employee_ids" class="form-control" name="employee_id" />
+                  <input type="number" id="employee_ids" class="form-control" name="employee_id"
+                    value={{studentToUpdate.id}} />
                   <span></span>
                   <span class="formerror" id="span"></span>
                 </div>
@@ -69,7 +70,8 @@
                 </div>
 
                 <div class="col-lg-6" id="edit-name-id">
-                  <input type="text" id="name_ids" class="form-control" name="name" ngModel />
+                  <input type="text" id="name_ids" class="form-control" value={{studentToUpdate.name}} name="name"
+                    ngModel />
                   <span></span>
                   <span class="formerror" id="span"></span>
                 </div>
@@ -83,7 +85,8 @@
                 </div>
 
                 <div class="col-lg-6" id="edit-mobile-number-id">
-                  <input type="number" id="mobile_ids" class="form-control" name="mobile_number" ngModel />
+                  <input type="number" id="mobile_ids" class="form-control" value={{studentToUpdate.phoneNo}}
+                    name="mobile_number" ngModel />
                   <span></span>
                   <span class="formerror" id="span"></span>
                 </div>
@@ -95,7 +98,8 @@
                   <label for="email">Email:</label>
                 </div>
                 <div class="col-lg-6 text-right" id="edit-email-id">
-                  <input type="email" id="email_ids" class="form-control" name="email" ngModel />
+                  <input type="email" id="email_ids" class="form-control" name="email" value={{studentToUpdate.email}}
+                    ngModel />
                   <span></span>
                   <span class="formerror" id="span"></span>
                 </div>
@@ -107,7 +111,7 @@
                   <label for="city">City:</label>
                 </div>
                 <div class="col-lg-6" id="edit-city">
-                  <select name="city" id="city_ids" class="form-control" ngModel>
+                  <select name="city" id="city_ids" class="form-control" value={{studentToUpdate.city}} ngModel>
                     <option value=" ">None</option>
                     <option value="Kolkata">Kolkata</option>
                     <option value="Mumbai">Mumbai</option>
@@ -126,7 +130,7 @@
                 </div>
 
                 <div class="col-lg-6 text-right" id="edit-state-id">
-                  <select name="state" id="state_ids" class="form-control" ngModel>
+                  <select name="state" id="state_ids" class="form-control" value={{studentToUpdate.state}} ngModel>
                     <option value="Andaman and Nicobar Islands">
                       Andaman and Nicobar Islands
                     </option>
@@ -149,7 +153,8 @@
                 </div>
 
                 <div class="col-lg-6 text-right" id="edit-country-id">
-                  <select name="country" id="country_ids" class="form-control" ngModel>
+                  <select name="country" id="country_ids" class="form-control" value={{studentToUpdate.country}}
+                    ngModel>
                     <option value=" ">None</option>
                     <option value="ind">Ind</option>
                     <option value="pak">Pak</option>
@@ -168,7 +173,8 @@
                 </div>
 
                 <div class="col-lg-6">
-                  <input type="number" id="p_id" class="form-control" name="pin_code" ngModel />
+                  <input type="number" id="p_id" class="form-control" name="pin_code" value={{studentToUpdate.pin}}
+                    ngModel />
                   <span></span>
                   <span class="formerror" id="span"></span>
                 </div>
