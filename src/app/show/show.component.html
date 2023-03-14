@@ -1,35 +1,43 @@
 <div class="container row">
   <div class="col-lg-1"></div>
-  <div class="col-lg-10 pt-5">
+  <div class="col-lg-10 pt-2">
     <!-- Table for show data in table which was given by user in "form" element   -->
-    <div class="col-lg-8" class="table-responsive" id="table">
-      <table class="table p-3" border="4" id="table_id">
-        <tr class="p-3">
-          <th>Employee id</th>
-          <th>Name</th>
-          <th>Mobile number</th>
-          <th>Email</th>
-          <th>City</th>
-          <th>State</th>
-          <th>Country</th>
-          <th>Pin code</th>
-          <th colspan="2">Action</th>
-        </tr>
-        <tr *ngFor="let student of students">
-          <td>{{ student.id }}</td>
-          <td>{{ student.name }}</td>
-          <td>{{ student.phoneNo }}</td>
-          <td>{{ student.email }}</td>
-          <td>{{ student.state }}</td>
-          <td>{{ student.city }}</td>
-          <td>{{ student.country }}</td>
-          <td>{{ student.pin }}</td>
-          <td><button type="button" (click)="takeSubmitId(student.id)" (click)="showValueModal(student)"
-              data-bs-toggle="modal" data-bs-target="#editModal" class="btn btn-outline-info"><i
-                class="fa-solid fa-pen-to-square"></i></button></td>
-          <td><button type="button" (click)="deleteStudent(student.id)" class="btn btn-outline-danger"> <i
-                class="fa-solid fa-trash"></i></button></td>
-        </tr>
+    <div class="col-lg-8" class="table-responsive " id="table" class="table table-striped">
+      <table class="table  " border="4" id="table_id" datatable [dtOptions]="dtoptions" [dtTrigger]="dtTrigger"
+        class="row-border hover">
+        <thead>
+          <tr>
+            <th>Employee id</th>
+            <th>Name</th>
+            <th>Mobile number</th>
+            <th>Email</th>
+            <th>City</th>
+            <th>State</th>
+            <th>Country</th>
+            <th>Pin code</th>
+            <th>Edit</th>
+            <th>Delete</th>
+
+            <!-- <th colspan="2">Action</th> -->
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let student of students">
+            <td>{{ student.id }}</td>
+            <td>{{ student.name }}</td>
+            <td>{{ student.phoneNo }}</td>
+            <td>{{ student.email }}</td>
+            <td>{{ student.state }}</td>
+            <td>{{ student.city }}</td>
+            <td>{{ student.country }}</td>
+            <td>{{ student.pin }}</td>
+            <td><button type="button" (click)="takeSubmitId(student.id)" (click)="showValueModal(student)"
+                data-bs-toggle="modal" data-bs-target="#editModal" class="btn btn-outline-info"><i
+                  class="fa-solid fa-pen-to-square"></i></button></td>
+            <td><button type="button" (click)="deleteStudent(student.id)" class="btn btn-outline-danger"> <i
+                  class="fa-solid fa-trash"></i></button></td>
+          </tr>
+        </tbody>
       </table>
     </div>
   </div>

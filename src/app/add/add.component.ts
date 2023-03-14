@@ -11,7 +11,7 @@ export class AddComponent {
 
   constructor(private studentService: StudentService) { }
 
-
+  // Store the form data in dada vbject variable
   submit(value: any) {
     const data: object = {
       "name": value.name,
@@ -24,6 +24,7 @@ export class AddComponent {
     };
 
 
+    // Call function for POST data
     this.studentService.postStudents(data).subscribe(() => {
       alert("Data successfully Added");
     })

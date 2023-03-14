@@ -1,7 +1,9 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Subject } from 'rxjs';
 import { Student } from '../student';
 import { StudentService } from '../student.service';
+
 
 
 @Component({
@@ -12,6 +14,8 @@ import { StudentService } from '../student.service';
 export class ShowComponent implements OnInit {
   constructor(private studentService: StudentService) { }
 
+
+  // Create a object variablr for showing data in modal
   studentToUpdate = {
     "id": "",
     "name": "",
@@ -21,26 +25,23 @@ export class ShowComponent implements OnInit {
     "city": "",
     "country": "",
     "pin": ""
-
   };
 
+  // Store the Row data in studentToUpdate Object
   showValueModal(st: any) {
     this.studentToUpdate = st;
-    console.log(this.studentToUpdate);
-
   }
+
 
   ids: string | undefined;
-  // student: Student[] = [];
+
+  // Store the id
   takeSubmitId(id: any) {
     this.ids = id;
-
-    // let currentStudent = this.student.find((s) => { return s.id == id });
-    // console.log(currentStudent);
-
   }
 
 
+  // Store the Modal form date in datas object
   editSubmit(value: any) {
     const datas: object = {
       "name": value.name,
@@ -52,30 +53,40 @@ export class ShowComponent implements OnInit {
       "pin": value.pin_code,
     };
 
+    // Call PutSTudent Function for EditData
     this.studentService.putStudent(datas, this.ids).subscribe(() => {
       alert("Data successfully Updated");
     })
   }
 
+  // Receive id and send the id for delete the data
   deleteStudent(id: any) {
     this.studentService.deleteStudent(id).subscribe(() => {
       alert("Data successfully Deleted");
     })
   }
-
   students: any = [];
+
+  dtoptions: DataTables.Settings = {};
+  dtTrigger: Subject<any> = new Subject<any>();
   ngOnInit() {
+    this.dtoptions = {
+      pagingType: 'full_numbers'
+    };
     this.getStudent()
+
   }
 
+  // Call function for get data
   public getStudent() {
     this.studentService.getStudents().subscribe(
-      data => this.students = data,
-      (HttpErrorResponse) => {
-        alert("Sorry! server error, data loading failed!");
+      data => {
+        this.students = data;
+        // (HttpErrorResponse) => {
+        //   alert("Sorry! server error, data loading failed!");
+        // }
+        this.dtTrigger.next(null);
       }
-
     )
-
   }
 }
