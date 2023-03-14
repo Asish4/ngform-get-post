@@ -1,5 +1,6 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { error } from 'jquery';
 import { Subject } from 'rxjs';
 import { Student } from '../student';
 import { StudentService } from '../student.service';
@@ -56,14 +57,18 @@ export class ShowComponent implements OnInit {
     // Call PutSTudent Function for EditData
     this.studentService.putStudent(datas, this.ids).subscribe(() => {
       alert("Data successfully Updated");
-    })
+    }), (err: HttpErrorResponse) => {
+      console.log(err)
+    }
   }
 
   // Receive id and send the id for delete the data
   deleteStudent(id: any) {
     this.studentService.deleteStudent(id).subscribe(() => {
       alert("Data successfully Deleted");
-    })
+    }), (err: HttpErrorResponse) => {
+      console.log(err)
+    }
   }
   students: any = [];
 
@@ -73,6 +78,8 @@ export class ShowComponent implements OnInit {
     this.dtoptions = {
       pagingType: 'full_numbers'
     };
+
+
     this.getStudent()
 
   }
@@ -86,7 +93,16 @@ export class ShowComponent implements OnInit {
         //   alert("Sorry! server error, data loading failed!");
         // }
         this.dtTrigger.next(null);
+      }, (err: HttpErrorResponse) => {
+        console.log(err)
       }
     )
   }
 }
+// (error: HttpErrorResponse) => {
+//   console.log("Don't get the data");
+
+//   alert("Sorry! server error, data loading failed!");
+
+// }
+

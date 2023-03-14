@@ -1,3 +1,4 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { StudentService } from '../student.service';
 
@@ -27,7 +28,9 @@ export class AddComponent {
     // Call function for POST data
     this.studentService.postStudents(data).subscribe(() => {
       alert("Data successfully Added");
-    })
+    }), (err: HttpErrorResponse) => {
+      console.log(err)
+    }
 
 
   }
