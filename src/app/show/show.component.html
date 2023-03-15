@@ -64,7 +64,7 @@
 
                 <div class="col-lg-6" id="edit-employee-id">
                   <input type="number" id="employee_ids" class="form-control" name="employee_id"
-                    value={{studentToUpdate.id}} />
+                    [(ngModel)]="studentToUpdate.id" />
                   <span></span>
                   <span class="formerror" id="span"></span>
                 </div>
@@ -78,7 +78,7 @@
                 </div>
 
                 <div class="col-lg-6" id="edit-name-id">
-                  <input type="text" id="name_ids" class="form-control" value={{studentToUpdate.name}} name="name"
+                  <input type="text" id="name_ids" class="form-control" [(ngModel)]="studentToUpdate.name" name="name"
                     ngModel />
                   <span></span>
                   <span class="formerror" id="span"></span>
@@ -93,7 +93,7 @@
                 </div>
 
                 <div class="col-lg-6" id="edit-mobile-number-id">
-                  <input type="number" id="mobile_ids" class="form-control" value={{studentToUpdate.phoneNo}}
+                  <input type="number" id="mobile_ids" class="form-control" [(ngModel)]="studentToUpdate.phoneNo"
                     name="mobile_number" ngModel />
                   <span></span>
                   <span class="formerror" id="span"></span>
@@ -106,8 +106,8 @@
                   <label for="email">Email:</label>
                 </div>
                 <div class="col-lg-6 text-right" id="edit-email-id">
-                  <input type="email" id="email_ids" class="form-control" name="email" value={{studentToUpdate.email}}
-                    ngModel />
+                  <input type="email" id="email_ids" class="form-control" name="email"
+                    [(ngModel)]="studentToUpdate.email" ngModel />
                   <span></span>
                   <span class="formerror" id="span"></span>
                 </div>
@@ -119,7 +119,7 @@
                   <label for="city">City:</label>
                 </div>
                 <div class="col-lg-6" id="edit-city">
-                  <select name="city" id="city_ids" class="form-control" value={{studentToUpdate.city}} ngModel>
+                  <select name="city" id="city_ids" class="form-control" [(ngModel)]="studentToUpdate.city" ngModel>
                     <option value=" ">None</option>
                     <option value="Kolkata">Kolkata</option>
                     <option value="Mumbai">Mumbai</option>
@@ -138,7 +138,7 @@
                 </div>
 
                 <div class="col-lg-6 text-right" id="edit-state-id">
-                  <select name="state" id="state_ids" class="form-control" value={{studentToUpdate.state}} ngModel>
+                  <select name="state" id="state_ids" class="form-control" [(ngModel)]="studentToUpdate.state" ngModel>
                     <option value="Andaman and Nicobar Islands">
                       Andaman and Nicobar Islands
                     </option>
@@ -161,7 +161,7 @@
                 </div>
 
                 <div class="col-lg-6 text-right" id="edit-country-id">
-                  <select name="country" id="country_ids" class="form-control" value={{studentToUpdate.country}}
+                  <select name="country" id="country_ids" class="form-control" [(ngModel)]="studentToUpdate.country"
                     ngModel>
                     <option value=" ">None</option>
                     <option value="ind">Ind</option>
@@ -181,7 +181,7 @@
                 </div>
 
                 <div class="col-lg-6">
-                  <input type="number" id="p_id" class="form-control" name="pin_code" value={{studentToUpdate.pin}}
+                  <input type="number" id="p_id" class="form-control" name="pin_code" [(ngModel)]="studentToUpdate.pin"
                     ngModel />
                   <span></span>
                   <span class="formerror" id="span"></span>

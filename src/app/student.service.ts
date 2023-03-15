@@ -8,6 +8,7 @@ export class StudentService {
     //private apiServerUrl = enviornment.apiBaseUrl;
     private apiServerUrl = "http://localhost:3000";
 
+    // Passing errr to Show And Add component
     handleError(error: any) {
         let errorMessage = '';
         if (error.error instanceof ErrorEvent) {
