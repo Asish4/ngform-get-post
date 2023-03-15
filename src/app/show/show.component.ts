@@ -28,13 +28,13 @@ export class ShowComponent implements OnInit {
     "pin": ""
   };
 
-  // Store the Row data in studentToUpdate Object
+  /**Store the Row data in studentToUpdate Object*/
   showValueModal(st: any) {
     this.studentToUpdate = st;
   }
 
 
-  ids: string | undefined;
+  ids: string = "";
 
   // Store the id
   takeSubmitId(id: any) {
@@ -42,7 +42,7 @@ export class ShowComponent implements OnInit {
   }
 
 
-  // Store the Modal form date in datas object
+  /**Store the Modal form date in datas object*/
   editSubmit(value: any) {
     const datas: object = {
       "name": value.name,
@@ -54,7 +54,7 @@ export class ShowComponent implements OnInit {
       "pin": value.pin_code,
     };
 
-    // Call PutSTudent Function for EditData
+    /**Call PutSTudent Function for EditData */
     this.studentService.putStudent(datas, this.ids).subscribe(() => {
       alert("Data successfully Updated");
     }), (err: HttpErrorResponse) => {
@@ -62,7 +62,7 @@ export class ShowComponent implements OnInit {
     }
   }
 
-  // Receive id and send the id for delete the data
+  /**Receive id and send the id for delete the data*/
   deleteStudent(id: any) {
     this.studentService.deleteStudent(id).subscribe(() => {
       alert("Data successfully Deleted");
@@ -75,23 +75,22 @@ export class ShowComponent implements OnInit {
   dtoptions: DataTables.Settings = {};
   dtTrigger: Subject<any> = new Subject<any>();
   ngOnInit() {
+
+    // Customise the page
     this.dtoptions = {
       pagingType: 'full_numbers'
     };
 
-
+    /**Calling getStudent() Function*/
     this.getStudent()
 
   }
 
-  // Call function for get data
+  /**Call function for get data*/
   public getStudent() {
     this.studentService.getStudents().subscribe(
       data => {
         this.students = data;
-        // (HttpErrorResponse) => {
-        //   alert("Sorry! server error, data loading failed!");
-        // }
         this.dtTrigger.next(null);
       }, (err: HttpErrorResponse) => {
         console.log(err)
@@ -99,10 +98,5 @@ export class ShowComponent implements OnInit {
     )
   }
 }
-// (error: HttpErrorResponse) => {
-//   console.log("Don't get the data");
 
-//   alert("Sorry! server error, data loading failed!");
-
-// }
 

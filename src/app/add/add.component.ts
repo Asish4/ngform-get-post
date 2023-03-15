@@ -25,7 +25,7 @@ export class AddComponent {
     };
 
 
-    // Call function for POST data
+    /**Call function for POST data*/
     this.studentService.postStudents(data).subscribe(() => {
       alert("Data successfully Added");
     }), (err: HttpErrorResponse) => {
